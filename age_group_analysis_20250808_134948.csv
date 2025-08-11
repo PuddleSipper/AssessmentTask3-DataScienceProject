@@ -1,0 +1,6 @@
+age_group,daily_screen_hours_count,daily_screen_hours_mean,daily_screen_hours_median,daily_screen_hours_std,constantly_online_mean,phone_anxiety_mean,sleep_problems_mean,total_social_hours_mean
+13-14,306,7.28,7.4,1.86,0.44,0.4,0.48,7.27
+15-17,500,7.46,7.5,2.02,0.47,0.39,0.54,7.07
+18-19,397,6.88,6.8,1.82,0.35,0.36,0.43,7.18
+20-24,502,6.83,6.8,1.78,0.38,0.36,0.44,7.03
+25-29,295,5.37,5.5,1.49,0.26,0.31,0.23,7.33
