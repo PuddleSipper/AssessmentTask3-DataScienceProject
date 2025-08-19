@@ -1,5 +1,5 @@
 import pandas as pd
-
+import customtkinter as ctk
 import matplotlib.pyplot as plt
 
 # Load the datasets
@@ -9,6 +9,7 @@ df_B = pd.read_csv("platform_analysis_20250808_134948.csv")
 print(df_A.isnull().sum())
 print(df_A.describe())
 
+# DATA VISUALISATION PART OF THIS TASK
 # I do need to clean this CSV to get 13-19 year olds
 
 Screentime_mean_by_app = df_B.groupby('Platform')["Avg_Hours_Per_Day"].mean()
@@ -47,3 +48,14 @@ plt.ylabel('')  # Removes default y-axis label
 plt.tight_layout()
 plt.savefig("phone_anxiety_pie_chart.png")
 plt.show()
+
+# GUI PART OF THIS TASK
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("blue")
+
+base_gui = ctk.CTk()
+base_gui.title("Teens & Screens Data")
+base_gui.geometry("700x400")
+
+frame = ctk.CTkFrame(master=base_gui)
+frame.pack(padx=20, pady=20, fill="both", expand=True)
