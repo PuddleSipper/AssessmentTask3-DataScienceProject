@@ -76,7 +76,7 @@ def search_data():
         if dataset == '1':
             row = input("Choose the row:")
             if row > '1203':
-                print("Please choose a smaller number")
+                print("Input a number from 1-1203")
             elif row <= '1203':
                 integer_row = int(row)
                 print(df_a.iloc[integer_row])
@@ -85,7 +85,7 @@ def search_data():
         elif dataset == '2':
             row = input("Choose the row:")
             if row > '6':
-                print("Please choose a smaller number")
+                print("Input a number from 1-6")
             elif row <= '6':
                 integer_row = int(row)
                 print(df_b.iloc[integer_row])
@@ -94,7 +94,7 @@ def search_data():
         elif dataset == '3':
             row = input("Choose the row:")
             if row > '5':
-                print("Please choose a smaller number")
+                print("Input a number from 1-5")
             elif row <= '5':
                 integer_row = int(row)
                 print(df_c.iloc[integer_row])
