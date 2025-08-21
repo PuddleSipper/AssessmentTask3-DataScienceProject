@@ -1,5 +1,4 @@
 import pandas as pd
-import customtkinter as ctk
 import matplotlib.pyplot as plt
 
 # Load the datasets
@@ -20,7 +19,7 @@ plt.ylabel('Average Hours Per Day')
 plt.xticks(rotation=45)
 plt.xticks(size=6)
 plt.tight_layout()
-plt.savefig("my_custom_chart.png")
+plt.savefig("Screen_time_by_app.png")
 plt.show()
 
 # Cleaning code for 13-19 year olds
@@ -49,13 +48,45 @@ plt.tight_layout()
 plt.savefig("phone_anxiety_pie_chart.png")
 plt.show()
 
+Constantly_Online_Percentage = df_C[df_C['constantly_online'] != 'None']['constantly_online'].value_counts()
+df_plot_constantly_online = Constantly_Online_Percentage.reset_index()
+df_plot_constantly_online.columns = ['Issue', 'Count']
+df_plot_constantly_online.set_index('Issue').plot(kind='pie', y='Count', autopct='%1.1f%%', title='Phone Anxiety within teens')
+plt.xlabel('')
+plt.ylabel('')  # Removes default y-axis label
+plt.tight_layout()
+plt.savefig("constantly_online_pie_chart.png")
+plt.show()
+
 # GUI PART OF THIS TASK
-ctk.set_appearance_mode("dark")
-ctk.set_default_color_theme("blue")
+# Yes, I did use the example as I am running low on time and learning tkinter will take a while
+from data_module import (
+    display_dataset_preview,
+    display_visualisation,
+    search_data
+)
 
-base_gui = ctk.CTk()
-base_gui.title("Teens & Screens Data")
-base_gui.geometry("700x400")
+def main_menu():
+    while True:
+        print("\n=== Data Viewer Interface ===")
+        print("1. View datasets")
+        print("2. View visualisations")
+        print("3. Search or filter data")
+        print("4. Exit")
 
-frame = ctk.CTkFrame(master=base_gui)
-frame.pack(padx=20, pady=20, fill="both", expand=True)
+        choice = input("Select an option (1-4): ").strip()
+
+        if choice == '1':
+            display_dataset_preview()
+        elif choice == '2':
+            display_visualisation()
+        elif choice == '3':
+            search_data()
+        elif choice == '4':
+            print("Exiting program.")
+            break
+        else:
+            print("Invalid selection. Please choose a number between 1 and 6.")
+
+if __name__ == "__main__":
+    main_menu()
